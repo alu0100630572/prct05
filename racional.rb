@@ -1,8 +1,6 @@
 # Implementar en este fichero la clase para crear objetos racionales
 #! /bin/env ruby
 
-require "./gcd.rb"
-
 class Fraccion
   
   attr_reader :num, :denom
@@ -18,10 +16,31 @@ class Fraccion
   def +(other)			#Metodo para sumar 
     if (@denom == other.denom)
       Fraccion.new(@num + other.num, @denom)
-    else if (@denom != other.denom)
-
-      
+    else
+      resultado = Fraccion.new(@num*other.denom + @denom*other.num, @denom*other.denom)
+      resultado.reducir
+    end
   end
   
-  def
+  def gcd(u, v)			#Calculamos el minimo
+    u, v = u.abs, v.abs
+    while v != 0
+      u, v = v, u % v
+    end
+    u
+  end
+  
+  def reducir
+    comun_div = gcd(@num, @denom)
+    @num = @num/comun_div
+    @denom = @denom/comun_div
+    Fraccion.new(@num,@denom)
+  end
+  
 end
+
+f1 = Fraccion.new(2,4)
+f2 = Fraccion.new(2,6)
+f3 = f1 + f2
+#f3 = f3.reducir
+puts f3.to_s
