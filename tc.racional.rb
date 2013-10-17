@@ -4,7 +4,6 @@ require "test/unit"
 class Test_Fraccion < Test::Unit::TestCase
         def test_simple
                 assert_equal( "(5/3)", Fraccion.new(5,3).to_s )		#Comprobamos que inicializa bien
-                assert_raise( ArgumentError) { Fraccion.new(1, 0) } # Fallo
         end
         
         def test_operaciones
