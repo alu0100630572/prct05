@@ -1,0 +1,11 @@
+# Implementar en este fichero la clase para crear objetos racionales
+
+require "./gcd.rb"
+
+class Fraccion
+  def initialize(num,denom)  #Metodo que es llamado por el constructor
+    @num, @denom = num,denom  
+  end
+
+
+end
