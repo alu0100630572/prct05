@@ -22,6 +22,16 @@ class Fraccion
     end
   end
   
+  def -(other)
+    if (@denom == other.denom)
+      Fraccion.new(@num - other.num, @denom)
+    else
+      resultado = Fraccion.new(@num*other.denom - @denom*other.num, @denom*other.denom)
+      resultado.reducir
+    end
+  end
+    
+  
   def gcd(u, v)			#Calculamos el minimo
     u, v = u.abs, v.abs
     while v != 0
@@ -41,6 +51,5 @@ end
 
 f1 = Fraccion.new(2,4)
 f2 = Fraccion.new(2,6)
-f3 = f1 + f2
-#f3 = f3.reducir
+f3 = f1 - f2
 puts f3.to_s
