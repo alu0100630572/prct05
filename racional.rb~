@@ -31,8 +31,15 @@ class Fraccion
     resultado.reducir
   end
   
-  def *(other)
+  def *(other)			#Metodo para multiplicar
     resultado = Fraccion.new(@num * other.num, @denom * other.denom)
+    resultado.reducir
+  end
+  
+  def div(other)			#Metodo para dividir
+    @num = @num*other.denom
+    @denom = other.num*@denom
+    resultado = Fraccion.new(@num,@denom)
     resultado.reducir
   end
   
@@ -55,5 +62,5 @@ end
 
 f1 = Fraccion.new(2,4)
 f2 = Fraccion.new(2,6)
-f3 = f1 * f2
+f3 = f1.div(f2)
 puts f3.to_s

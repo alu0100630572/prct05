@@ -36,9 +36,9 @@ class Fraccion
     resultado.reducir
   end
   
-  def div(other)			#Metodo para dividir
-    @num = @num*other.denom
-    @denom = other.num*@denom
+  def div(other)		#Metodo para dividir
+    @num = @num * other.denom
+    @denom = other.num * @denom
     resultado = Fraccion.new(@num,@denom)
     resultado.reducir
   end
@@ -59,8 +59,3 @@ class Fraccion
   end
   
 end
-
-f1 = Fraccion.new(2,4)
-f2 = Fraccion.new(2,6)
-f3 = f1.div(f2)
-puts f3.to_s
