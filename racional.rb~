@@ -15,22 +15,26 @@ class Fraccion
   
   def +(other)			#Metodo para sumar 
     if (@denom == other.denom)
-      Fraccion.new(@num + other.num, @denom)
+      resultado = Fraccion.new(@num + other.num, @denom)
     else
       resultado = Fraccion.new(@num*other.denom + @denom*other.num, @denom*other.denom)
-      resultado.reducir
     end
+    resultado.reducir
   end
   
-  def -(other)
+  def -(other)			#Metodo para restar
     if (@denom == other.denom)
-      Fraccion.new(@num - other.num, @denom)
+      resultado = Fraccion.new(@num - other.num, @denom)
     else
-      resultado = Fraccion.new(@num*other.denom - @denom*other.num, @denom*other.denom)
-      resultado.reducir
+      resultado = Fraccion.new(@num * other.denom - @denom * other.num, @denom * other.denom)
     end
+    resultado.reducir
   end
-    
+  
+  def *(other)
+    resultado = Fraccion.new(@num * other.num, @denom * other.denom)
+    resultado.reducir
+  end
   
   def gcd(u, v)			#Calculamos el minimo
     u, v = u.abs, v.abs
@@ -40,7 +44,7 @@ class Fraccion
     u
   end
   
-  def reducir
+  def reducir			#Reducimos la fraccion
     comun_div = gcd(@num, @denom)
     @num = @num/comun_div
     @denom = @denom/comun_div
@@ -51,5 +55,5 @@ end
 
 f1 = Fraccion.new(2,4)
 f2 = Fraccion.new(2,6)
-f3 = f1 + f2
+f3 = f1 - f2
 puts f3.to_s
