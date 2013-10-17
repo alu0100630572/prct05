@@ -1,0 +1,11 @@
+Run options: 
+
+# Running tests:
+
+..
+
+Finished tests in 0.003383s, 591.2751 tests/s, 2069.4630 assertions/s.
+
+2 tests, 7 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 2.0.0p247 (2013-06-27 revision 41674) [i686-linux]
