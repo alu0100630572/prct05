@@ -55,5 +55,5 @@ end
 
 f1 = Fraccion.new(2,4)
 f2 = Fraccion.new(2,6)
-f3 = f1 - f2
+f3 = f1 * f2
 puts f3.to_s
